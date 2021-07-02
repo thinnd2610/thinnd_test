@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-1">
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                
+                <input type="radio"><h2 class="remember">Remember</h2>
+                
+
+            </div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+            </div>
+
+            <button class="form-submit">Login</button>
+            <button class="form-khac">Create Account</button>
+            <button class="form-khac" style="float: left;width: 150px;;">Forgot Password ?</button>
+            <button class="form-khac" style="float: right;width: 150px;">Resent Activation Email</button>
+        </form>
+
+    </div>
+    <script src="./main.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mong muốn của chúng ta
+            Validator({
+                form: '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                    Validator.isRequired('#password_confirmation'),
+                ],
+            
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
